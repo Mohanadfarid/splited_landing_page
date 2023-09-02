@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&family=Roboto:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.split {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: width 1s ease;
+}
+.left {
+  left: 0;
+  background-image: url(images/ps.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-size: auto;
+}
+.split.left::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(87, 84, 236, 0.7);
+}
+.right {
+  right: 0;
+  background-image: url(images/xbox.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.split.right::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(43, 43, 43, 0.8);
+}
+
+.btn {
+  position: absolute;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border: 4px solid white;
+  padding: 20px;
+  font-weight: bold;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:10px ;
+}
+
+h1 {
+  top: 30%;
+  position: absolute;
+  color: white;
+  font-size: 30px;
+  white-space: nowrap;
+}
+
+.btn.L:hover {
+  background-color: rgba(87, 84, 236, 1);
+  border-color: rgba(87, 84, 236, 1);
+}
+
+.btn.R:hover {
+  background-color: rgba(28, 122, 28, 1);
+  border-color: rgba(28, 122, 28, 1);
+}
+
+.activeL .left {
+  width: 75%;
+  z-index: 2;
+}
+
+.activeL .right {
+  width: 25%;
+}
+.activeL .right h1 ,.activeL .right .btn  {
+  opacity: 0.3;
+}
+
+.activeR .left {
+  width: 25%;
+}
+.activeR .left h1 ,.activeR .left .btn  {
+  opacity: 0.3;
+}
+
+.activeR .right {
+  width: 75%;
+  z-index: 2;
+}
